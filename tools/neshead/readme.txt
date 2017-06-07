@@ -1,0 +1,7 @@
+NES Header Checker
+AcidPhire Programming
+February, 2000
+http://www.acidphire.com/emulation
+[turn word wrap on]
+
+Not much to explain.  I felt like making the program, and I did one day.  This is the only version, and unless I am extremely motivated, it will remain the only version.  The CHR value must be a number value which is a multiple of 8192 bytes (ex: 1 =8192, 2=16384), this can include 0.  The PRG value must be a number which is a multiple of 16384 bytes (ex 1=16384, 2=32768).  This does not include zero.  You probably shouldn't mess with this stuff unless you know what you are doing.  Currently, the program recognizes approximately 80 mapper types by name.  The mappers.dat file is likely to be replaced as soon as I find a recently updated mapper list.  The mappers.dat should stay in the same directory as the program.  It will still work without the file, just won't identify mappers by name.  This also requires the VB6 runtime files in the windows\system directory as well as the comdlg32.ocx in the same directory.  They can be found in the downloads section of the main page of my site.  This also includes a nifty little script type thing which allows you to edit large amounts of ROM headers without doing it by hand.  I don't even remember writing the scripting, but it was just there one day.  Hmm...sleep programming?

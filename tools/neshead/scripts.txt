@@ -1,0 +1,42 @@
+//AcidPhire NES Header Checker
+//Scripts.txt
+
+//Commands
+OPEN <file>			//open specified file
+SAVE <file>			//save specified file
+IS <gamename> <file>*		//create infosheet of opened file
+SET <option> <boolean>**	//set option (see list) to on or off
+SET MAP <num>			//sets mapper to specified mapper (0 to 255)
+SET PRG <val>			//sets PRG size (1 to 64) to val * 16 kb
+SET CHR <val>			//sets CHR size (0 to 64) to val * 8 kb
+CLEAN <file>			//cleans the header of specified file
+
+//Possible Options
+HM	//horrizontal mirroring
+VM	//vertical mirroring
+4S	//4 screen VRAM
+B	//battery
+T	//trainer
+
+//example script
+OPEN smb.nes			//opens the file for editing
+CLEAN smb.nes			//cleans the header
+SET VM TRUE***			//turn vertical mirroring on
+SET 4S FALSE			//turns 4 screen VRAM off
+SET B FALSE			//turns battery off
+SET T FALSE			//turns trainer off
+SET PRG 2			//sets PRG to 32 kb (2 * 16 kb)
+SET CHR 1			//sets CHR to 8 kb (1 * 8 kb)
+SET MAP 0			//sets mapper to #0 (no mapper)
+IS Super_Mario_Bros smb.txt	//creates infosheet for smb.nes ROM
+SAVE smb.nes			//saves changes to file
+
+//rules
+file must be open to use IS or SET commands
+OPENing an additional file will automatically close the last one
+
+*	must specify game's full name (no spaces, use _) and file name to
+	create
+**	TRUE = option on, FALSE = option off
+***	setting mirroring automatically changes the other, no need to turn
+	one on and the other off

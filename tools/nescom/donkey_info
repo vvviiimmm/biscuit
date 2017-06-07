@@ -1,0 +1,22 @@
+mem[0] and mem[1] freqently used as function arg address
+
+mem[0x10] holds PPU controller, $2000
+mem[0x11] holds PPU mask, $2001
+mem[0x12] holds scroll x, $2005
+mem[0x13] holds scroll y, $2005
+
+- Something important for ppu init at 0x330, 0x331: _func_34C2
+
+Ppu init sequence:
+_Reset	$C79E
+JSR _func_07E7_init_ppu
+	JMP _func_0BB7_init_ppu2
+	JSR _func_119A_hide_bg_and_sprites, returns
+	JMP _loc_31B4_clear_ppu_memory
+	RTS $F1EB
+
+
+
+Actual run:
+c7af -> next instruction after waiting for vblank, 9934's op, 29801's cycle
+c7c0 -> n.i. after clearing ram
